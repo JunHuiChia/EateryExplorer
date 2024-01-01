@@ -3,8 +3,7 @@ function Index() {
         <div>
         <h1>Home</h1>
         <p>
-            Welcome to the home page! Click <a href="/friends">here</a> to see the
-            friends list.
+            Welcome to the home page!
         </p>
         </div>
     )
