@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
-import './handdrawn.css' 
+import '../css/App.css'
+import '../css/handdrawn.css' 
 
 function App() {
   return (
