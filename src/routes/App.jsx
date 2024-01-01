@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import '../css/App.css'
-import '../css/handdrawn.css' 
+import Navigation from '../components/navigation'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <h1>Eatery Explorer</h1>
+      <Navigation />
+      <Outlet />
     </>
   )
 }
