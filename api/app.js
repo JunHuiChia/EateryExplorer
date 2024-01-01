@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const RateLimit = require('express-rate-limit');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -11,6 +12,11 @@ var usersRouter = require('./routes/users');
 var eateryRouter = require('./routes/eatery');
 
 var app = express();
+
+const limiter = RateLimit({
+	windowMs: 1 * 60 * 1000, // 1 minute
+	max: 20, // limit each IP to 100 requests per windowMs
+});
 
 mongoose.set('strictQuery', false);
 const mongoDB = process.env.DB_URL;
@@ -24,6 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(limiter);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
