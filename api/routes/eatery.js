@@ -15,10 +15,14 @@ async function saveEatery() {
 }
 
 /* GET users listing. */
-router.get('/', async function (req, res, next) {
+router.get('/', async function (req, res) {
     const eatery = await eateryModel.find().exec();
     console.log(eatery);
     res.send(eatery);
+});
+
+router.post('/', async function (req, res) {
+    res.send({ result: "success"});
 });
 
 module.exports = router;
