@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const RateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(limiter);
+app.use(helmet());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
