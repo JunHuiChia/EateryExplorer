@@ -9,4 +9,9 @@ const eaterySchema = new Schema({
     description: String,
 });
 
-module.exports = mongoose.model('Eatery', eaterySchema);
+const eateryModel = mongoose.model('Eatery', eaterySchema);
+
+module.exports = {
+    eateryModel,
+    eaterySchema,
+}

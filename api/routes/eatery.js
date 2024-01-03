@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const eateryModel = require('../models/eateryModel');
+const { eateryModel } = require('../models/eateryModel');
 
 async function saveEatery() {
     const newEatery = new eateryModel({
@@ -22,6 +22,7 @@ router.get('/', async function (req, res) {
 });
 
 router.post('/', async function (req, res) {
+    console.log(req.body);
     res.send({ result: "success"});
 });
 
