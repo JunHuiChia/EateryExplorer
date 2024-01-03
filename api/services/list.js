@@ -1,4 +1,4 @@
-const { listModel } = require('../models/listModel');
+const listModel  = require('../models/listModel');
 
 async function getAllList() {
     return await listModel.find().populate({ 
