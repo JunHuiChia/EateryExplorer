@@ -36,12 +36,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(limiter);
 app.use(helmet());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/eatery', eateryRouter);
-app.use('/list', listRouter);
-app.use('/category', categoryRouter);
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));
@@ -62,5 +56,11 @@ main().catch((err) => console.log(err));
 async function main() {
 	await mongoose.connect(mongoDB);
 }
+
+app.use('/', indexRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/eatery', eateryRouter);
+app.use('/api/list', listRouter);
+app.use('/api/category', categoryRouter);
 
 module.exports = app;
