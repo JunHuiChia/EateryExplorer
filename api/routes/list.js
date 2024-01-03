@@ -1,34 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const listModel = require('../models/listModel');
+const controllers = require('../controllers/list');
 
-async function saveList(listData) {
-    const newList = new listModel({
-        name: listData.name,
-        category: listData.category,
-    });
+/* GET all lists. */
+router.get('/', controllers.getAllList);
 
-    const list = await newList.save();
-    return list;
-}
-
-/* GET users listing. */
-router.get('/', async function (req, res) {
-    const list = await listModel.find().populate({ 
-        path: 'category',
-        populate: {
-            path: 'eatery',
-            model: 'Eatery'
-        }
-    }).exec();
-    console.log(list);
-    res.send(list);
-});
-
-router.post('/', async function (req, res) {
-    const result = await saveList(req.body);
-    console.log(result);
-    res.send({ result: "success"});
-});
+/* POST Add list. */
+router.post('/', controllers.saveList);
 
 module.exports = router;
