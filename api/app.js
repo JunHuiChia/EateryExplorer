@@ -42,6 +42,11 @@ app.use('/api/eatery', eateryRouter);
 app.use('/api/list', listRouter);
 app.use('/api/category', categoryRouter);
 
+app.get('/*', function (req, res, next) {
+	res.setHeader('Last-Modified', new Date().toUTCString());
+	next();
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));

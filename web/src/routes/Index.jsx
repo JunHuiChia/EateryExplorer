@@ -3,7 +3,7 @@ import { CreateNewList } from '../components/CreateNewList';
 import { useLoaderData } from 'react-router-dom';
 
 function getEatery() {
-	fetch('http://localhost:3000/eatery')
+	fetch('http://localhost:3000/api/eatery')
 		.then((data) => data.json())
 		.then((data) => {
 			console.log(data);
@@ -11,7 +11,7 @@ function getEatery() {
 }
 
 async function loader() {
-	const test = await fetch('http://localhost:3000/eatery');
+	const test = await fetch('http://localhost:3000/api/eatery');
 	const result = await test.json();
 	console.log(result);
 	return result;
