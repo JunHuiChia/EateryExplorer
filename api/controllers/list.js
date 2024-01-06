@@ -1,20 +1,21 @@
-const { getAllList, saveList } = require('../services/list');
+const { getAllList, createNewList } = require('../services/list');
 
 module.exports = {
     getAllList: async (req, res) => {
         try{
-            const eatery = await getAllList();
+            const eatery = await getAllList(req.query.userId);
+            console.log(eatery);
             res.send(eatery);
         }
         catch (err){
             res.send(err);
         }
     },
-    saveList: async (req, res) => {
+    createNewList: async (req, res) => {
         try{
-            const result = await saveList(req.body);
+            const result = await createNewList(req.body);
             console.log(result);
-            res.send({ result: "success"});
+            res.send({ id: result._id, status: "success"});
         }
         catch (err){
             res.send(err);

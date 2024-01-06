@@ -6,6 +6,6 @@ const controllers = require('../controllers/list');
 router.get('/', controllers.getAllList);
 
 /* POST Add list. */
-router.post('/', controllers.saveList);
+router.post('/', controllers.createNewList);
 
 module.exports = router;
