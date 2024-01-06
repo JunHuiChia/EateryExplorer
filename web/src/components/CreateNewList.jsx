@@ -3,32 +3,34 @@ import { Form, useSubmit } from 'react-router-dom';
 async function action({ request }) {
 	const formData = await request.formData();
 	const name = formData.get('name');
-	const response = await fetch('http://localhost:3000/eatery', {
+	const userId = JSON.parse(localStorage.getItem('userId'));
+	const response = await fetch('http://localhost:3000/api/list', {
 		method: 'POST',
-		body: JSON.stringify(name),
+		body: JSON.stringify({ name: name, userId: userId }),
+		headers: {
+			'Content-Type': 'application/json',
+		},
 	});
 	const result = await response.json();
-	console.log(result);
 	return result;
 }
 
 function CreateNewList({ toggleNewList }) {
 	const submit = useSubmit();
 	function hideNewList(event) {
+		event.preventDefault();
 		toggleNewList(false);
 		submit(event.currentTarget);
 	}
 
 	return (
 		<div>
-			<Form method='post' action='/?index'>
+			<Form method='post' action='/?index' onSubmit={hideNewList}>
 				<label>
 					Name:
 					<input type='text' name='name' required />
 				</label>
-				<button type='submit' onClick={(event) => hideNewList(event)}>
-					Create List
-				</button>
+				<button type='submit'>Create List</button>
 			</Form>
 		</div>
 	);
