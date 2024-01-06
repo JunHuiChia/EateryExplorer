@@ -1,7 +1,8 @@
 const listModel  = require('../models/listModel');
 
-async function getAllList() {
-    return await listModel.find().populate({ 
+async function getAllList(userId) {
+    console.log(userId)
+    return await listModel.find({ owners: [userId]}).populate({ 
         path: 'category',
         populate: {
             path: 'eatery',
@@ -10,9 +11,10 @@ async function getAllList() {
     }).exec();
 }
 
-async function saveList(listData) {
+async function createNewList(listData) {
     const newList = new listModel({
         name: listData.name,
+        owners: [listData.userId],
         category: listData.category,
     });
 
@@ -23,5 +25,5 @@ async function saveList(listData) {
 
 module.exports = {
     getAllList,
-    saveList,
+    createNewList,
 }
