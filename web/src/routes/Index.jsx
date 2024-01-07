@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CreateNewList } from '../components/CreateNewList';
+import { List } from '../components/List';
 import { useLoaderData } from 'react-router-dom';
 
 function getEatery() {
@@ -46,12 +47,7 @@ function Index() {
 			</button>
 			{newList && <CreateNewList toggleNewList={setNewList} />}
 			{testData != null &&
-				testData.map((item) => (
-					<div key={item._id}>
-						<h1>{item.name}</h1>
-						<p>{item.description}</p>
-					</div>
-				))}
+				testData.map((item) => <List key={item._id} lists={item} />)}
 		</div>
 	);
 }
