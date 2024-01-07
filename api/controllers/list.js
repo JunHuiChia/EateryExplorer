@@ -3,7 +3,7 @@ const { getAllList, createNewList } = require('../services/list');
 module.exports = {
     getAllList: async (req, res) => {
         try{
-            const eatery = await getAllList(req.query.userId);
+            const eatery = await getAllList(req.query);
             console.log(eatery);
             res.send(eatery);
         }

@@ -1,8 +1,22 @@
 const listModel  = require('../models/listModel');
 
-async function getAllList(userId) {
-    console.log(userId)
-    return await listModel.find({ owners: [userId]}).populate({ 
+async function getAllList(params) {
+    console.log(params)
+    if (params.userId) {
+        return await getAllListByUserId(params.userId);
+    } else if (params.listId) {
+        return await getListByListId(params.listId);
+    }
+
+    return "Failed to fetch list";
+}
+
+async function getAllListByUserId(userId) {
+    return await listModel.find({ owners: [userId]}).populate('category').exec();
+}
+
+async function getListByListId(listId) {
+    return await listModel.findById(listId).populate({ 
         path: 'category',
         populate: {
             path: 'eatery',
