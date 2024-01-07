@@ -11,8 +11,11 @@ function List() {
 
 	return (
 		<div>
-			<h1>List</h1>
+			<h1>{listData.name}</h1>
 			<p>This is the list page!</p>
+			{listData.category.map((item) => (
+				<p key={item._id}>{item.name}</p>
+			))}
 			<p>{console.log(listData)}</p>
 		</div>
 	);
