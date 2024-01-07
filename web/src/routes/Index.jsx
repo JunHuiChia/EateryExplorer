@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { CreateNewList } from '../components/CreateNewList';
-import { List } from '../components/List';
+import Listbox from '../components/ListBox';
 import { useLoaderData } from 'react-router-dom';
+import ListApi from '../apis/ListApi';
 
 function getEatery() {
 	fetch('http://localhost:3000/api/eatery')
@@ -12,15 +13,8 @@ function getEatery() {
 }
 
 async function loader() {
-	const test = await fetch(
-		'http://localhost:3000/api/list?' +
-			new URLSearchParams({
-				userId: JSON.parse(localStorage.getItem('userId')),
-			})
-	);
-	const result = await test.json();
-	console.log(result);
-	return result;
+	const userId = JSON.parse(localStorage.getItem('userId'));
+	return await ListApi.getAll(userId);
 }
 
 function Index() {
@@ -47,7 +41,7 @@ function Index() {
 			</button>
 			{newList && <CreateNewList toggleNewList={setNewList} />}
 			{testData != null &&
-				testData.map((item) => <List key={item._id} lists={item} />)}
+				testData.map((item) => <Listbox key={item._id} lists={item} />)}
 		</div>
 	);
 }
