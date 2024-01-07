@@ -1,6 +1,24 @@
+:root {
+	--grey-100: #f0f0f0;
+	--grey-200: #dbdbdb;
+	--grey-300: #bdbdbd;
+	--grey-400: #999999;
+	--grey-500: #7d7d7d;
+	--grey-600: #666666;
+	--grey-700: #525252;
+	--grey-800: #454545;
+
+	--primary-text: var(--grey-800);
+	--component-background: linear-gradient(
+		180deg,
+		var(--grey-200) 0%,
+		var(--grey-400) 100%
+	);
+}
+
 #root {
-  height: 100vh;
-  width: 100vw;
-  padding: 1rem;
-  text-align: center;
+	height: 100vh;
+	width: 100vw;
+	padding: 1rem;
+	text-align: center;
 }
