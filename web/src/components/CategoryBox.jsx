@@ -2,7 +2,6 @@ import '../css/list.css';
 import { useNavigate } from 'react-router-dom';
 
 function DisplayListInformation(data) {
-	console.log('CategoryBox:', data);
 	let eatery = data.category.eatery;
 	if (eatery.length === 0) eatery = 'No eateries';
 

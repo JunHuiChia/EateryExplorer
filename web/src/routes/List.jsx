@@ -16,8 +16,7 @@ async function loader({ params }) {
 function List() {
 	const [newCategory, setNewCategory] = useState(false);
 	const listData = useLoaderData();
-	console.log('List: ', listData);
-	console.log('ListId: ', listId);
+	// console.log('List: ', listData);
 
 	return (
 		<div>

@@ -6,12 +6,14 @@ import './css/handdrawn.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { action as rootAction } from './components/CreateNewList.jsx';
+import { action as listAction } from './components/CreateNewCategory.jsx';
+
 import { Index, loader as rootLoader } from './routes/Index.jsx';
-import FriendsList from './routes/FriendsList.jsx';
 import { List, loader as listLoader } from './routes/List.jsx';
 
+import FriendsList from './routes/FriendsList.jsx';
 import Error from './components/Error.jsx';
-import { action as rootAction } from './components/CreateNewList.jsx';
 
 const router = createBrowserRouter([
 	{
@@ -33,6 +35,7 @@ const router = createBrowserRouter([
 				path: 'list/:id',
 				element: <List />,
 				loader: listLoader,
+				action: listAction,
 			},
 		],
 	},
