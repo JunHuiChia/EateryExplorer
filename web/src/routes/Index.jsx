@@ -20,6 +20,7 @@ async function loader() {
 function Index() {
 	const [newList, setNewList] = useState(false);
 	const testData = useLoaderData();
+	console.log('Index: ', testData);
 
 	useEffect(() => {
 		const userId = JSON.parse(localStorage.getItem('userId'));
