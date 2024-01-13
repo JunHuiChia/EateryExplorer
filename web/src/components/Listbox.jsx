@@ -8,7 +8,9 @@ function DisplayListInformation(data) {
 	return (
 		<>
 			<h2>{data.lists.name}</h2>
-			<p>{category}</p>
+			{category !== 'No categories' && (
+				<p>Catgories: {category.length}</p>
+			)}
 		</>
 	);
 }
