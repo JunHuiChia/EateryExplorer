@@ -2,15 +2,12 @@ import '../css/list.css';
 import { useNavigate } from 'react-router-dom';
 
 function DisplayListInformation(data) {
-	let category = data.lists.category;
-	if (category.length === 0) category = 'No categories';
+	let categories = data.lists.category.length;
 
 	return (
 		<>
 			<h2>{data.lists.name}</h2>
-			{category !== 'No categories' && (
-				<p>Catgories: {category.length}</p>
-			)}
+			<p>Categories: {categories}</p>
 		</>
 	);
 }

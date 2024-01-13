@@ -2,13 +2,12 @@ import '../css/list.css';
 import { useNavigate } from 'react-router-dom';
 
 function DisplayListInformation(data) {
-	let eatery = data.category.eatery;
-	if (eatery.length === 0) eatery = 'No eateries';
+	let eateries = data.category.eatery.length;
 
 	return (
 		<>
 			<h2>{data.category.name}</h2>
-			{eatery !== 'No eateries' && <p>Eateries: {eatery.length}</p>}
+			<p>Eateries: {eateries}</p>
 		</>
 	);
 }
