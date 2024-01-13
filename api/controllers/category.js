@@ -3,8 +3,8 @@ const { getAllCategory, saveCategory } = require('../services/category');
 module.exports = {
     getAllCategory: async (req, res) => {
         try{
-            const eatery = await getAllCategory();
-            res.send(eatery);
+            const category = await getAllCategory();
+            res.send(category);
         }
         catch (err){
             res.send(err);
@@ -13,7 +13,7 @@ module.exports = {
     addCategory: async (req, res) => {
         try{
             const result = await saveCategory(req.body);
-            console.log(result);
+            console.log("addCategory:", result);
             res.send({ result: "success"});
         }
         catch (err){

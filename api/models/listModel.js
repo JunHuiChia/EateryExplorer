@@ -1,5 +1,3 @@
-var { categoryModel } = require('./categoryModel');
-
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
