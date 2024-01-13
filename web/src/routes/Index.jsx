@@ -4,14 +4,6 @@ import Listbox from '../components/ListBox';
 import { useLoaderData } from 'react-router-dom';
 import ListApi from '../apis/ListApi';
 
-function getEatery() {
-	fetch('http://localhost:3000/api/eatery')
-		.then((data) => data.json())
-		.then((data) => {
-			console.log(data);
-		});
-}
-
 async function loader() {
 	const userId = JSON.parse(localStorage.getItem('userId'));
 	return await ListApi.getAll(userId);
@@ -36,7 +28,6 @@ function Index() {
 		<div>
 			<h1>Home</h1>
 			<p>Welcome to the home page!</p>
-			<button onClick={getEatery}>Get Eatery</button>
 			<button onClick={() => setNewList(!newList)}>
 				Create New List
 			</button>
