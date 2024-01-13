@@ -9,8 +9,7 @@ let listId;
 async function loader({ params }) {
 	console.log(params);
 	listId = params.id;
-	var test = await ListApi.getOne(listId);
-	return test;
+	return await ListApi.getOne(listId);
 }
 
 function List() {

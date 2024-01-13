@@ -12,8 +12,7 @@ async function action({ request }) {
 			'Content-Type': 'application/json',
 		},
 	});
-	const result = await response.json();
-	return result;
+	return await response.json();
 }
 
 CreateNewCategory.propTypes = {
