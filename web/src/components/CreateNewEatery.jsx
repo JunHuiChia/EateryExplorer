@@ -45,7 +45,7 @@ function CreateNewEatery({ listId, categoryId, toggleNewEatery }) {
 				<label htmlFor='price'>Prices:</label>
 				<input type='text' name='price' />
 				<label htmlFor='rating'>Rating:</label>
-				<input type='text' name='rating' />
+				<input type='number' name='rating' />
 				<button type='submit'>Create Eatery</button>
 			</Form>
 		</div>
