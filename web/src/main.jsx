@@ -11,6 +11,7 @@ import { action as listAction } from './components/CreateNewCategory.jsx';
 
 import { Index, loader as rootLoader } from './routes/Index.jsx';
 import { List, loader as listLoader } from './routes/List.jsx';
+import { Category, loader as categoryLoader } from './routes/Category.jsx';
 
 import FriendsList from './routes/FriendsList.jsx';
 import Error from './components/Error.jsx';
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
 				element: <List />,
 				loader: listLoader,
 				action: listAction,
+			},
+			{
+				path: 'list/:id/category/:categoryId',
+				element: <Category />,
+				loader: categoryLoader,
 			},
 		],
 	},
