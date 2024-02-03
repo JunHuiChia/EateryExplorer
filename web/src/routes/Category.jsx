@@ -9,7 +9,7 @@ let listId;
 
 async function loader({ params }) {
 	console.log(params);
-	listId = params.listId;
+	listId = params.id;
 	categoryId = params.categoryId;
 	return await CategoryApi.getOne(categoryId);
 }
