@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 
 async function action({ request }) {
 	const formData = await request.formData();
-	const name = formData.get('name');
-	const categoryId = formData.get('categoryId');
 	const response = await fetch('http://localhost:3000/api/eatery', {
 		method: 'POST',
-		body: JSON.stringify({ name: name, categoryId: categoryId }),
+		body: JSON.stringify(Object.fromEntries(formData)),
 		headers: {
 			'Content-Type': 'application/json',
 		},
@@ -33,12 +31,21 @@ function CreateNewEatery({ listId, categoryId, toggleNewEatery }) {
 
 	return (
 		<div>
-			<Form method='post' action={action} onSubmit={hideNewEatery}>
-				<label>
-					Name:
-					<input type='text' name='name' required />
-					<input type='hidden' name='categoryId' value={categoryId} />
-				</label>
+			<Form
+				method='post'
+				action={action}
+				onSubmit={hideNewEatery}
+				className='eateryForm'
+			>
+				<label htmlFor='name'>Name:</label>
+				<input type='text' name='name' required />
+				<label htmlFor='description'>Description:</label>
+				<input type='hidden' name='categoryId' value={categoryId} />
+				<input type='text' name='description' required />
+				<label htmlFor='price'>Prices:</label>
+				<input type='text' name='price' />
+				<label htmlFor='rating'>Rating:</label>
+				<input type='text' name='rating' />
 				<button type='submit'>Create Eatery</button>
 			</Form>
 		</div>
