@@ -29,5 +29,6 @@ async function saveCategory(categoryData) {
 
 module.exports = {
     getAllCategory,
+    getCategoryByCategoryId,
     saveCategory,
 }

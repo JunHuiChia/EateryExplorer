@@ -1,4 +1,8 @@
-const { getAllCategory, saveCategory } = require('../services/category');
+const {
+    getAllCategory,
+    saveCategory,
+    getCategoryByCategoryId
+} = require('../services/category');
 
 module.exports = {
     getAllCategory: async (req, res) => {
