@@ -5,6 +5,10 @@ async function getAllCategory() {
     return await categoryModel.find().populate('eatery').exec();
 }
 
+async function getCategoryByCategoryId(categoryId) {
+    return await categoryModel.findById(categoryId).populate('eatery').exec();
+}
+
 async function saveCategory(categoryData) {
     console.log("saveCategory", categoryData);
 

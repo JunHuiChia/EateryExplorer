@@ -10,6 +10,16 @@ module.exports = {
             res.send(err);
         }
     },
+    getCategoryByCategoryId: async (req, res) => {
+        try{
+            const category = await getCategoryByCategoryId(req.query.categoryId);
+            console.log("Get category by category id:", category);
+            res.send(category);
+        }
+        catch (err){
+            res.send(err);
+        }
+    },
     addCategory: async (req, res) => {
         try{
             const result = await saveCategory(req.body);
