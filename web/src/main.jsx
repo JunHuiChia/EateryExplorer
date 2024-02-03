@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { action as rootAction } from './components/CreateNewList.jsx';
 import { action as listAction } from './components/CreateNewCategory.jsx';
+import { action as categoryAction } from './components/CreateNewEatery.jsx';
 
 import { Index, loader as rootLoader } from './routes/Index.jsx';
 import { List, loader as listLoader } from './routes/List.jsx';
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
 				path: 'list/:id/category/:categoryId',
 				element: <Category />,
 				loader: categoryLoader,
+				action: categoryAction,
 			},
 		],
 	},
