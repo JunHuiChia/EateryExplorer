@@ -1,4 +1,5 @@
 const { eateryModel } = require('../models/eateryModel');
+const { categoryModel } = require('../models/categoryModel');
 
 async function getAllEatery() {
     return await eateryModel.find().exec();
@@ -13,7 +14,12 @@ async function saveEatery(eateryData) {
     });
 
     const eatery = await newEatery.save();
-    return eatery;
+
+    return await categoryModel.findByIdAndUpdate(
+        eateryData.categoryId,
+        { $push: { eatery: eatery._id } },
+        { new: true, useFindAndModify: false },
+    ).exec();
 }
 
 

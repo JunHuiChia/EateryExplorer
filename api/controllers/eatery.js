@@ -13,7 +13,7 @@ module.exports = {
     addEatery: async (req, res) => {
         try{
             const result = await saveEatery(req.body);
-            console.log(result);
+            console.log("addEatery:", result);
             res.send({ result: "success"});
         }
         catch (err){
