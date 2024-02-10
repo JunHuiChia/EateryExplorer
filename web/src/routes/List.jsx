@@ -3,6 +3,11 @@ import ListApi from '../apis/ListApi';
 import CategoryBox from '../components/CategoryBox';
 import { useState } from 'react';
 import { CreateNewCategory } from '../components/CreateNewCategory';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas);
 
 let listId;
 
@@ -19,7 +24,10 @@ function List() {
 
 	return (
 		<div>
-			<h1>{listData.name}</h1>
+			<div className='collection-name'>
+				<h1> {listData.name} </h1>
+				<FontAwesomeIcon icon='fa-solid fa-pen-to-square' />
+			</div>
 			<button onClick={() => setNewCategory(!newCategory)}>
 				Create New Category
 			</button>
