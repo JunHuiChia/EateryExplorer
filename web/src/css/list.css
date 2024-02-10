@@ -8,7 +8,6 @@
 	background: white;
 	transition: all 0.1s linear;
 	display: flex;
-	flex-direction: column;
 }
 
 .list:hover {
@@ -18,4 +17,17 @@
 .list > * {
 	margin: 0.25rem;
 	align-self: baseline;
+}
+
+.box-data {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-grow: 4;
+}
+
+.fa-icons {
+	height: 1.5rem;
+	padding: 0 0.5rem;
+	cursor: pointer;
 }
