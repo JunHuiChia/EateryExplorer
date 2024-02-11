@@ -6,6 +6,7 @@ provider:
     region: eu-west-2
     stage: ${opt:stage, 'prod'}
     deploymentMethod: direct
+    stackName: eatery-explorer-backend-${self:provider.stage}
     environment:
         NODE_ENV: production # Set environment variables
 
