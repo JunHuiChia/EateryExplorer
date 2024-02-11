@@ -18,7 +18,7 @@ var app = express();
 
 const limiter = RateLimit({
 	windowMs: 1 * 60 * 1000, // 1 minute
-	max: 20, // limit each IP to 100 requests per windowMs
+	max: 20, // limit each IP to 20 requests per windowMs
 });
 
 mongoose.set('strictQuery', false);
