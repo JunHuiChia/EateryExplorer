@@ -7,6 +7,7 @@ const RateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const serverless = require('serverless-http');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -17,7 +18,7 @@ var categoryRouter = require('./routes/category');
 var app = express();
 
 const limiter = RateLimit({
-	windowMs: 1 * 60 * 1000, // 1 minute
+	windowMs: 1 * 60 * 1000, // 1 minuten
 	max: 20, // limit each IP to 20 requests per windowMs
 });
 
@@ -66,6 +67,9 @@ app.use(function (err, req, res, next) {
 main().catch((err) => console.log(err));
 async function main() {
 	await mongoose.connect(mongoDB);
+	console.log('Connected to MongoDB');
 }
 
+console.log('Server running on port 3000');
 module.exports = app;
+module.exports.handler = serverless(app);
