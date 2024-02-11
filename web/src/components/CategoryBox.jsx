@@ -5,10 +5,10 @@ function DisplayListInformation(data) {
 	let eateries = data.category.eatery.length;
 
 	return (
-		<>
+		<div className='box-data'>
 			<h2>{data.category.name}</h2>
 			<p>Eateries: {eateries}</p>
-		</>
+		</div>
 	);
 }
 
