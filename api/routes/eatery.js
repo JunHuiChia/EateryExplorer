@@ -6,5 +6,7 @@ const controllers = require('../controllers/eatery');
 router.get('/', controllers.getAllEatery);
 /* POST Add eatery. */
 router.post('/', controllers.addEatery);
+/* DELETE Delete eatery. */
+router.delete('/:id', controllers.deleteEatery);
 
 module.exports = router;

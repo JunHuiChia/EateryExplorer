@@ -22,8 +22,16 @@ async function saveEatery(eateryData) {
     ).exec();
 }
 
+async function deleteEatery(eateryId) {
+    try {
+        return await eateryModel.findByIdAndDelete(eateryId).exec();
+    } catch (error) {
+        console.log("Error:", error);
+    }
+}
 
 module.exports = {
     getAllEatery,
     saveEatery,
+    deleteEatery,
 }
