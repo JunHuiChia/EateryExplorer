@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 async function action({ request }) {
 	const formData = await request.formData();
-	const response = await fetch('http://localhost:3000/api/category', {
+	const response = await fetch(import.meta.env.VITE_BASE_URL + '/category', {
 		method: 'POST',
 		body: JSON.stringify(Object.fromEntries(formData)),
 		headers: {

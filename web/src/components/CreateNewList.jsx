@@ -4,7 +4,7 @@ async function action({ request }) {
 	const formData = await request.formData();
 	const name = formData.get('name');
 	const userId = JSON.parse(localStorage.getItem('userId'));
-	const response = await fetch('http://localhost:3000/api/list', {
+	const response = await fetch(import.meta.env.VITE_BASE_URL + '/list', {
 		method: 'POST',
 		body: JSON.stringify({ name: name, userId: userId }),
 		headers: {
