@@ -30,3 +30,4 @@ jobs:
 
             - name: Deploy to AWS Lambda
               run: sls deploy
+              working-directory: ./api
