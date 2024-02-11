@@ -2,10 +2,25 @@ import '../css/list.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 library.add(fas);
 
 function DisplayCategoryInformation(data) {
+	let navigate = useNavigate();
+	function DeleteEatery(eateryId) {
+		fetch(import.meta.env.VITE_BASE_URL + '/eatery/' + eateryId, {
+			method: 'DELETE',
+		})
+			.then((response) => {
+				console.log(response);
+				navigate(0);
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	}
+
 	return (
 		<>
 			<div className='box-data'>
@@ -22,6 +37,7 @@ function DisplayCategoryInformation(data) {
 				<FontAwesomeIcon
 					icon='fa-solid fa-square-xmark'
 					className='fa-icons'
+					onClick={() => DeleteEatery(data.eatery._id)}
 				/>
 			</div>
 		</>
