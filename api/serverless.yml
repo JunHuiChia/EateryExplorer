@@ -1,5 +1,4 @@
-service:
-    name: EateryExplorer
+service: eatery-explorer-backend
 
 provider:
     name: aws
