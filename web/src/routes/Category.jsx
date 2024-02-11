@@ -32,6 +32,7 @@ function Category() {
 					toggleNewEatery={setNewEatery}
 				/>
 			)}
+			<h2> Eateries: </h2>
 			{categoryData != null &&
 				categoryData.eatery.map((eatery) => (
 					<EateryBox key={eatery._id} eatery={eatery} />

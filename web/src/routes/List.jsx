@@ -26,7 +26,7 @@ function List() {
 		<div>
 			<div className='collection-name'>
 				<h1> {listData.name} </h1>
-				<FontAwesomeIcon icon='fa-solid fa-pen-to-square' />
+				{/* <FontAwesomeIcon icon='fa-solid fa-pen-to-square' />  */}
 			</div>
 			<button onClick={() => setNewCategory(!newCategory)}>
 				Create New Category

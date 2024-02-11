@@ -30,13 +30,13 @@ function DisplayCategoryInformation(data) {
 				<p>Rating: {data.eatery.rating}</p>
 			</div>
 			<div className='box-control'>
-				<FontAwesomeIcon
+				{/* <FontAwesomeIcon
 					icon='fa-solid fa-pen-to-square'
 					className='fa-icons'
-				/>
+				/> */}
 				<FontAwesomeIcon
 					icon='fa-solid fa-square-xmark'
-					className='fa-icons'
+					className='fa-icons fa-delete'
 					onClick={() => DeleteEatery(data.eatery._id)}
 				/>
 			</div>
