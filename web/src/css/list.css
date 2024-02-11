@@ -26,8 +26,17 @@
 	flex-grow: 4;
 }
 
+.box-data > * {
+	margin: 0.25rem;
+}
+
 .fa-icons {
 	height: 1.5rem;
 	padding: 0 0.5rem;
 	cursor: pointer;
+	transition: all 0.1s linear;
+}
+
+.fa-delete:hover {
+	color: var(--negative);
 }

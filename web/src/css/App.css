@@ -8,6 +8,8 @@
 	--grey-700: #525252;
 	--grey-800: #454545;
 
+	--negative: #f10a0a;
+
 	--primary-text: var(--grey-800);
 	--component-background: linear-gradient(
 		180deg,
