@@ -5,6 +5,7 @@ provider:
     runtime: nodejs20.x
     region: eu-west-2
     stage: ${opt:stage, 'prod'}
+    deploymentMethod: direct
     environment:
         NODE_ENV: production # Set environment variables
 
