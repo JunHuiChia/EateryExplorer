@@ -18,6 +18,10 @@ jobs:
               with:
                   node-version: 20
 
+            - name: Install NPM Packages
+              run: npm install
+              working-directory: ./api
+
             - name: Install Serverless
               run: npm install -g serverless
 
