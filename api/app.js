@@ -40,7 +40,6 @@ app.use('/api/category', categoryRouter);
 app.use(cors());
 app.get('/*', function (req, res, next) {
 	res.setHeader('Last-Modified', new Date().toUTCString());
-	res.set('Access-Control-Allow-Origin', 'https://eateryexplorer.pages.dev');
 	next();
 });
 
