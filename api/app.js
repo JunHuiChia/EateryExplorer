@@ -16,6 +16,8 @@ var listRouter = require('./routes/list');
 var categoryRouter = require('./routes/category');
 
 var app = express();
+app.use(cors());
+app.options('*', cors());
 
 mongoose.set('strictQuery', false);
 const mongoDB = process.env.DB_URL;
@@ -37,10 +39,8 @@ app.use('/api/eatery', eateryRouter);
 app.use('/api/list', listRouter);
 app.use('/api/category', categoryRouter);
 
-app.use(cors());
 app.get('/*', function (req, res, next) {
 	res.setHeader('Last-Modified', new Date().toUTCString());
-	res.setHeader('Access-Control-Allow-Origin', '*');
 	next();
 });
 
