@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const serverless = require('serverless-http');
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -36,8 +37,10 @@ app.use('/api/eatery', eateryRouter);
 app.use('/api/list', listRouter);
 app.use('/api/category', categoryRouter);
 
+app.use(cors());
 app.get('/*', function (req, res, next) {
 	res.setHeader('Last-Modified', new Date().toUTCString());
+	res.set('Access-Control-Allow-Origin', 'https://eateryexplorer.pages.dev');
 	next();
 });
 
