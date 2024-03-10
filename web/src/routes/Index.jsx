@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CreateNewList } from '../components/CreateNewList';
-import Listbox from '../components/ListBox';
+import Listbox from '../components/Listbox';
 import { useLoaderData } from 'react-router-dom';
 import ListApi from '../apis/ListApi';
 
