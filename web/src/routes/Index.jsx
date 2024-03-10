@@ -15,7 +15,7 @@ function Index() {
 	//console.log('Index: ', testData);
 
 	useEffect(() => {
-		const userId = JSON.parse(localStorage.getItem('userId'));
+		const userId = localStorage.getItem('userId');
 		if (userId == null) {
 			localStorage.setItem(
 				'userId',
