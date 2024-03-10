@@ -5,7 +5,11 @@ import { useLoaderData } from 'react-router-dom';
 import ListApi from '../apis/ListApi';
 
 async function loader() {
-	const userId = JSON.parse(localStorage.getItem('userId'));
+	let userId = localStorage.getItem('userId');
+	if (userId == null) {
+		return {};
+	}
+	userId = JSON.parse(userId);
 	return await ListApi.getAll(userId);
 }
 
