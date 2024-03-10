@@ -6,9 +6,7 @@ import ListApi from '../apis/ListApi';
 
 async function loader() {
 	let userId = localStorage.getItem('userId');
-	if (userId == null) {
-		return {};
-	}
+	if (userId == null) return null;
 	userId = JSON.parse(userId);
 	return await ListApi.getAll(userId);
 }
